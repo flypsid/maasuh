@@ -1,8 +1,17 @@
+"use client";
+
+import Image from "next/image";
+
 import React from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, ArrowUpRight, LogIn, UserPlus } from "lucide-react";
+import { CreditCard, Bot, Store, Zap } from "lucide-react";
 
-const Stat = ({ label, value }) => (
+interface StatProps {
+  label: string;
+  value: string | number;
+}
+
+const Stat = ({ label, value }: StatProps) => (
   <div className="space-y-1">
     <div className="text-3xl font-semibold tracking-tight text-slate-900">
       {value}
@@ -11,7 +20,16 @@ const Stat = ({ label, value }) => (
   </div>
 );
 
-const SoftButton = ({ children, className = "", ...props }) => (
+interface SoftButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+}
+
+const SoftButton = ({
+  children,
+  className = "",
+  ...props
+}: SoftButtonProps) => (
   <button
     className={
       "rounded-full px-5 py-2.5 text-sm font-medium shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-2 " +
@@ -26,14 +44,14 @@ const SoftButton = ({ children, className = "", ...props }) => (
 
 function MiniBars() {
   return (
-    <div className="mt-6 flex h-36 items-end gap-4 rounded-xl bg-gradient-to-b from-emerald-50 to-white p-4">
+    <div className="mt-6 flex h-36 items-end gap-4 rounded-xl bg-linear-to-b from-emerald-50 to-white p-4">
       {[18, 48, 72, 96].map((h, i) => (
         <motion.div
           key={i}
           initial={{ height: 0, opacity: 0.6 }}
           animate={{ height: h }}
           transition={{ delay: 0.5 + i * 0.15, type: "spring" }}
-          className="w-10 rounded-xl bg-gradient-to-t from-emerald-200 to-emerald-400 shadow-inner"
+          className="w-10 rounded-xl bg-linear-to-t from-emerald-200 to-emerald-400 shadow-inner"
         />
       ))}
     </div>
@@ -85,7 +103,7 @@ function Planet() {
   );
 }
 
-export default function MoneyflowLandingPage() {
+export default function MaasuhHero() {
   return (
     <div className="min-h-screen w-full bg-[#F3F5F7]">
       {/* Fonts */}
@@ -95,29 +113,19 @@ export default function MoneyflowLandingPage() {
         .font-jakarta { font-family: var(--font-sans); }
       `}</style>
 
-      {/* Top nav (no fake browser bar) */}
+      {/* Top nav */}
       <nav className="mx-auto flex w-full max-w-[1180px] items-center justify-between px-4 py-6 md:px-0">
         <div className="flex items-center gap-3">
-          <div className="grid h-9 w-9 place-items-center rounded-lg bg-emerald-700 text-white shadow">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4 12c5 0 4-8 10-8 0 3 6 3 6 8s-6 5-6 8c-6 0-5-8-10-8Z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-          <span className="font-jakarta text-xl font-semibold tracking-tight text-slate-900">
-            moneyflow
-          </span>
+          <Image
+            src="/images/logofull.webp"
+            alt="Ma'a Suh Logo"
+            width={150}
+            height={40}
+            className="h-10 w-auto object-contain"
+          />
         </div>
         <div className="hidden items-center gap-8 md:flex">
-          {["Solutions", "Product", "Company", "Insight"].map((item) => (
+          {["A propos", "Nos solutions", "Actualités", "FAQ"].map((item) => (
             <a
               key={item}
               href="#"
@@ -128,59 +136,61 @@ export default function MoneyflowLandingPage() {
           ))}
         </div>
         <div className="hidden gap-2 md:flex">
-          <button className="rounded-full px-4 py-2 text-sm text-slate-700 hover:bg-white">
-            Login
-          </button>
-          <SoftButton>Sign Up</SoftButton>
+          <SoftButton>Contact</SoftButton>
         </div>
       </nav>
 
       {/* Hero area */}
-      <div className="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-6 px-4 pb-14 md:grid-cols-2 md:px-0">
+      <div className="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-6 px-4 py-14 md:grid-cols-2 md:px-0">
         {/* Left: headline */}
         <div className="flex flex-col justify-center space-y-8 pr-2">
           <div>
-            <h1 className="text-5xl md:text-6xl font-semibold leading-[1.05] tracking-tight text-slate-900">
-              Secure your money
+            <h1 className="text-4xl md:text-5xl font-semibold leading-[1.05] tracking-tight text-slate-900">
+              L&apos;innovation numérique
               <br />
-              with precision.
+              au service de votre succès.
             </h1>
             <p className="mt-4 max-w-md text-slate-600">
-              Join over a million people who choose{" "}
-              <span className="font-medium text-slate-900">moneyflow</span> for
-              fast and secure future banking.
+              Fintech, SaaS, Retail et IA : un écosystème complet pour{" "}
+              <span className="font-medium text-slate-900">
+                sécuriser vos actifs
+              </span>
+              , optimiser votre gestion et automatiser votre croissance.
             </p>
           </div>
 
           <div className="flex items-center gap-4">
-            <SoftButton>
-              Open Account <ArrowUpRight className="ml-1 inline h-4 w-4" />
-            </SoftButton>
+            <SoftButton>A propos de nous</SoftButton>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 pt-2 md:max-w-sm">
-            <Stat label="Total Currencies" value="140+" />
-            <Stat label="Revenue Generated" value="$1.2B" />
+          <div className="grid grid-cols-3 gap-8 pt-2 md:max-w-xl">
+            <Stat label="Années d'Expérience" value="10+" />
+            <Stat label="Clients Satisfaits" value="500+" />
+            <Stat label="Projets Réalisés" value="1.2k" />
           </div>
 
           <div className="mt-6 flex items-center gap-8 opacity-70">
-            <span className="text-xs text-slate-500">TRUSTED BY THE BEST</span>
+            <span className="text-xs text-slate-500 uppercase tracking-widest">
+              Building:
+            </span>
             <div className="flex items-center gap-6 text-slate-400">
-              <span className="font-semibold">loom</span>
-              <span className="font-semibold">HubSpot</span>
-              <span className="font-semibold">ramp</span>
+              <span className="font-semibold">Ma’a Suh Pay</span>
+              <span className="font-semibold">MATHIE</span>
+              <span className="font-semibold">AKO</span>
+              <span className="font-semibold">KONSO</span>
+              <span className="font-semibold">ALOGA</span>
             </div>
           </div>
         </div>
 
         {/* Right: animated card grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {/* Secure card */}
+          {/* Fintech card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="relative col-span-1 overflow-hidden rounded-xl bg-gradient-to-b from-emerald-900 to-emerald-800 p-6 text-emerald-50 shadow-lg"
+            className="relative col-span-1 overflow-hidden rounded-xl bg-linear-to-b from-emerald-900 to-emerald-800 p-6 text-emerald-50 shadow-lg"
           >
             <div className="absolute inset-0">
               <svg
@@ -190,7 +200,7 @@ export default function MoneyflowLandingPage() {
               >
                 <defs>
                   <radialGradient id="rg" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#22d3aa" stopOpacity="0.35" />
+                    <stop offset="0%" stopColor="#34d399" stopOpacity="0.35" />
                     <stop offset="100%" stopColor="transparent" />
                   </radialGradient>
                 </defs>
@@ -212,15 +222,15 @@ export default function MoneyflowLandingPage() {
             <div className="relative flex h-full flex-col justify-between">
               <div className="flex items-center gap-3">
                 <div className="rounded-full bg-emerald-700/60 p-2 ring-1 ring-white/10">
-                  <ShieldCheck className="h-5 w-5" />
+                  <CreditCard className="h-5 w-5" />
                 </div>
                 <span className="text-xs uppercase tracking-wider text-emerald-200">
-                  Extra Secure
+                  Fintech & Paiement
                 </span>
               </div>
               <div className="mt-6 text-xl leading-snug text-emerald-50/95">
-                Fraud and security
-                <br /> keep your money safe
+                Ma&apos;a Suh Pay & Microfinance
+                <br /> transactions sécurisées
               </div>
               <motion.div
                 className="absolute right-6 top-6 h-12 w-12 rounded-full bg-emerald-600/40"
@@ -235,44 +245,70 @@ export default function MoneyflowLandingPage() {
             </div>
           </motion.div>
 
-          {/* Currencies card */}
+          {/* AI card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative col-span-1 overflow-hidden rounded-xl bg-gradient-to-b from-teal-400 to-emerald-500 p-6 text-white shadow-lg"
+            className="relative col-span-1 overflow-hidden rounded-xl bg-linear-to-b from-emerald-400 to-emerald-600 p-6 text-white shadow-lg"
           >
             <div className="pointer-events-none absolute -right-8 -top-10 opacity-70">
               <Planet />
             </div>
-            <div className="relative mt-24 text-sm text-white/90">
-              Currencies
+            <div className="relative mt-24 flex items-center gap-2 text-sm text-white/90">
+              <Bot className="h-4 w-4" /> Innovation IA
             </div>
             <div className="text-xl font-medium leading-snug">
-              Hundreds of
-              <br /> countries in one card
+              Mathie : Automatisez
+              <br /> vos réseaux sociaux
             </div>
           </motion.div>
 
-          {/* Growth card */}
+          {/* SaaS card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="col-span-1 rounded-xl bg-white p-6 text-slate-800 shadow-lg ring-1 ring-slate-200"
           >
-            <div className="text-sm text-slate-500">Growth Revenue</div>
+            <div className="text-sm text-slate-500">Gestion &amp; SaaS</div>
             <div className="mt-2 text-3xl font-semibold tracking-tight">
-              $50,240{" "}
+              +150%{" "}
               <span className="text-sm font-medium text-slate-400 align-middle">
-                USD
+                Efficacité
               </span>
             </div>
-            <div className="mt-1 text-xs text-emerald-600">↑ 0.024%</div>
+            <div className="mt-1 text-xs text-emerald-600">
+              ↑ AKO, CRM, ERP, Facturis
+            </div>
             <MiniBars />
           </motion.div>
 
-          <div className="hidden md:block" />
+          {/* Retail & Connectivity card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="relative col-span-1 overflow-hidden rounded-xl bg-linear-to-b from-teal-600 to-emerald-800 p-6 text-white shadow-lg"
+          >
+            <div className="absolute top-0 right-0 p-6 opacity-20">
+              <Zap className="h-24 w-24" />
+            </div>
+            <div className="relative flex h-full flex-col justify-between">
+              <div className="flex items-center gap-3">
+                <div className="rounded-full bg-teal-500/40 p-2 ring-1 ring-white/20">
+                  <Store className="h-5 w-5" />
+                </div>
+                <span className="text-xs uppercase tracking-wider text-teal-100">
+                  Retail &amp; Connectivité
+                </span>
+              </div>
+              <div className="mt-20 text-xl leading-snug">
+                KONSO &amp; Bantu Com&apos;s
+                <br /> connectez vos commerces
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>
