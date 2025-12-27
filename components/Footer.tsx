@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-6">
               <Image
-                src="/images/logo1000x1000.png"
+                src="/images/Logo1000x1000.png"
                 alt="Ma'a Suh Logo"
                 width={180}
                 height={60}
