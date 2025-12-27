@@ -1,0 +1,197 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { Linkedin, Facebook, ArrowRight } from "lucide-react";
+import Image from "next/image";
+
+export default function Footer() {
+  return (
+    <footer className="bg-slate-900 pt-16 pb-8 text-slate-400">
+      <div className="mx-auto max-w-[1180px] px-4 md:px-0">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-4 lg:gap-8 mb-16">
+          {/* Brand Column */}
+          <div className="md:col-span-1">
+            <Link href="/" className="flex items-center gap-2 mb-6">
+              <Image
+                src="/images/logo1000x1000.png"
+                alt="Ma'a Suh Logo"
+                width={180}
+                height={60}
+                className="h-10 w-auto object-contain"
+              />
+              <span className="text-xl font-bold text-white">
+                Ma&apos;a Suh
+              </span>
+            </Link>
+            <p className="text-sm leading-relaxed mb-6">
+              L&apos;innovation numérique au service de votre succès. Solutions
+              Fintech, Retail et SaaS pour l&apos;Afrique et le monde.
+            </p>
+            <div className="flex gap-4">
+              <a
+                href="https://x.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-8 w-8 flex items-center justify-center rounded-full bg-slate-800 hover:bg-emerald-600 hover:text-white transition-all text-slate-400"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  className="h-4 w-4 fill-current"
+                >
+                  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com/company/maasuhllc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-8 w-8 flex items-center justify-center rounded-full bg-slate-800 hover:bg-emerald-600 hover:text-white transition-all text-slate-400"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.facebook.com/maasuhllc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-8 w-8 flex items-center justify-center rounded-full bg-slate-800 hover:bg-emerald-600 hover:text-white transition-all text-slate-400"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Solutions Links */}
+          <div>
+            <h4 className="text-white font-bold mb-6">Solutions</h4>
+            <ul className="space-y-4 text-sm">
+              <li>
+                <a
+                  href="#solutions"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  Ma&apos;a Suh Pay
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#solutions"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  Microfinance SaaS
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#solutions"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  Retail & POS
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#solutions"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  CRM & ERP
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#solutions"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  Intelligence Artificielle
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company Links */}
+          <div>
+            <h4 className="text-white font-bold mb-6">Entreprise</h4>
+            <ul className="space-y-4 text-sm">
+              <li>
+                <a
+                  href="#about"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  A propos
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#expertise"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  Expertise
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#faq"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  FAQ & Support
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div>
+            <h4 className="text-white font-bold mb-6">Newsletter</h4>
+            <p className="text-sm mb-4">
+              Recevez nos dernières actualités et insights technologiques.
+            </p>
+            <form className="flex flex-col gap-2">
+              <input
+                type="email"
+                placeholder="Votre email"
+                className="bg-slate-800 border-slate-700 text-white placeholder-slate-500 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500 border"
+              />
+              <button className="bg-emerald-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2">
+                S&apos;inscrire
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+          <div>
+            &copy; {new Date().getFullYear()} Ma&apos;a Suh LLC. Tous droits
+            réservés.
+          </div>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-emerald-400 transition-colors">
+              Mentions Légales
+            </a>
+            <a href="#" className="hover:text-emerald-400 transition-colors">
+              Confidentialité
+            </a>
+            <a
+              href="https://rfx.life"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-emerald-400 transition-colors"
+              title="Développement Web & IA"
+            >
+              Built by Flypsid
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

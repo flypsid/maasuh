@@ -3,6 +3,7 @@ import About from "@/components/about";
 import Solutions from "@/components/Solutions";
 import Expertise from "@/components/Expertise";
 import FAQ from "@/components/FAQ";
+import Contact from "@/components/Contact";
 
 const Home = () => {
   return (
@@ -21,6 +22,9 @@ const Home = () => {
       </section>
       <section id="faq">
         <FAQ />
+      </section>
+      <section id="contact">
+        <Contact />
       </section>
     </main>
   );

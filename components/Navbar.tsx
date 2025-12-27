@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { SoftButton } from "@/components/ui/SoftButton";
 import { motion, AnimatePresence } from "framer-motion";
 
-export function Navbar() {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   // Remplace "Actualités" par "Expertise" comme demandé
@@ -48,7 +48,9 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden gap-2 md:flex">
-          <SoftButton>Contact</SoftButton>
+          <a href="#contact">
+            <SoftButton>Contact</SoftButton>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -83,9 +85,9 @@ export function Navbar() {
                 </a>
               ))}
               <div className="flex flex-col gap-3 pt-4">
-                <SoftButton onClick={() => setIsOpen(false)}>
-                  Contact
-                </SoftButton>
+                <a href="#contact" onClick={() => setIsOpen(false)}>
+                  <SoftButton>Contact</SoftButton>
+                </a>
               </div>
             </div>
           </motion.div>
