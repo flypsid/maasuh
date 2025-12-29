@@ -42,9 +42,7 @@ const solutionIcons: Record<SolutionKey, LucideIcon> = {
   konso: Store,
 };
 
-const solutionLinks: Partial<Record<SolutionKey, string>> = {
-  pay: "https://www.maasuhpay.com/",
-};
+const solutionLinks: Partial<Record<SolutionKey, string>> = {};
 
 const solutionKeys: SolutionKey[] = [
   "pay",
@@ -108,12 +106,12 @@ export default function Solutions() {
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 flex items-center gap-2 text-sm font-medium text-emerald-600 opacity-0 transform translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+                    className="mt-6 flex items-center gap-2 text-sm font-medium text-emerald-600 opacity-100 md:opacity-0 transform translate-y-0 md:translate-y-2 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:translate-y-0"
                   >
                     {t("discover")} <ArrowRight className="h-4 w-4" />
                   </a>
                 ) : (
-                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-emerald-600 opacity-0 transform translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer">
+                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-emerald-600 opacity-100 md:opacity-0 transform translate-y-0 md:translate-y-2 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:translate-y-0 cursor-pointer">
                     {t("discover")} <ArrowRight className="h-4 w-4" />
                   </div>
                 )}

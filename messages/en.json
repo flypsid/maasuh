@@ -30,8 +30,8 @@
     "cards": {
       "fintech": {
         "label": "Fintech & Payment",
-        "title": "Ma'a Suh Pay & Microfinance",
-        "subtitle": "secure transactions"
+        "title": "Payment Solutions",
+        "subtitle": "reliability & innovation"
       },
       "ai": {
         "label": "AI Innovation",
@@ -96,12 +96,12 @@
     "discover": "Discover",
     "items": {
       "pay": {
-        "title": "Ma'a Suh Pay",
-        "description": "All-in-one payment solution for your secure transactions."
+        "title": "Maasuh E-commerce",
+        "description": "All-in-one SaaS to create and manage your online store."
       },
       "microfinance": {
-        "title": "Ma'a Suh Microfinance",
-        "description": "Phygital solution for financial and banking management."
+        "title": "Anhk School",
+        "description": "School fees management and administrative tracking for institutions."
       },
       "crm": {
         "title": "Ma'a Suh CRM & ERP",
